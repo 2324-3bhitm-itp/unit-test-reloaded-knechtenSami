@@ -24,4 +24,35 @@ public class PersonTest {
         assertEquals(PASSWORD, person.getPassword());
         assertEquals(EMAIL, person.getEmail());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void username_is_null() {
+        person.setUsername(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void username_is_blank() {
+        person.setUsername("  ");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void password_is_null() {
+        person.setPassword(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void password_is_blank() {
+        person.setPassword("   ");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void email_is_null() {
+        person.setEmail(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void email_address_is_of_incorrect_form() {
+        String email = "a";
+        person.setEmail(email);
+    }
 }

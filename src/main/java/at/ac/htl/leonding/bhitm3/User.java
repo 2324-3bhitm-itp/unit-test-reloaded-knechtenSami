@@ -1,13 +1,22 @@
 package at.ac.htl.leonding.bhitm3;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class User extends Person {
-    private int userId;
+    private static int nextUserId = 1; // first user has user id 1
+    private int userId = nextUserId++; // first init then add 1 to nextUser
+    private List<Garden> gardens = new LinkedList<>();
 
-    private static int counter = 0;
+    public int getUserId() {
+        return userId;
+    }
 
-    private List<Garden> garden;
+    public void addGarden(Garden garden) {
+        this.gardens.add(garden);
+    }
 
-    
+    public int getNumberOfGardens() {
+        return this.gardens.size();
+    }
 }
